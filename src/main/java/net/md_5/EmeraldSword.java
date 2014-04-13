@@ -11,13 +11,17 @@ public class EmeraldSword extends JavaPlugin
 
     @Override
     public void onEnable()
-    {
-        ItemStack sword = new ItemStack( Material.DIAMOND_SWORD );
-        sword.addEnchantment( Enchantment.DAMAGE_ALL, 5 );
-        ShapedRecipe recipe = new ShapedRecipe( sword );
-        recipe.shape( " E ", " E ", " S " );
-        recipe.setIngredient( 'E', Material.EMERALD );
-        recipe.setIngredient( 'S', Material.STICK );
-        getServer().addRecipe( recipe );
-    }
+  {
+    ItemStack sword = new ItemStack(Material.DIAMOND_SWORD);
+    ItemMeta im = sword.getItemMeta();
+    sword.setItemMeta(im);
+    im.setDisplayName("Emerald Sword");
+    sword.setItemMeta(im);
+    sword.addUnsafeEnchantment(Enchantment.DAMAGE_ALL, 7);
+    ShapedRecipe recipe = new ShapedRecipe(sword);
+    recipe.shape(new String[] { " E ", " E ", " S " });
+    recipe.setIngredient('E', Material.EMERALD);
+    recipe.setIngredient('S', Material.STICK);
+    getServer().addRecipe(recipe);
+  }
 }
